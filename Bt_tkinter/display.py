@@ -52,8 +52,8 @@ button_b3 = ttk.Button(widgets_frame, text="B3")
 button_b3.grid(row=2, column=2, padx=5, pady=10, sticky="nsew")
 
 # Button Sent
-button_b3 = ttk.Button(widgets_frame, text="Sent")
-button_b3.grid(row=2, column=3, padx=5, pady=10, sticky="nsew")
+button_sent = ttk.Button(widgets_frame, text="Sent")
+button_sent.grid(row=2, column=3, padx=5, pady=10, sticky="nsew")
 
 
 # Start the main loop
