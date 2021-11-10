@@ -1,60 +1,81 @@
 import tkinter as tk
 from tkinter import ttk
 
-root = tk.Tk()
-root.title("Tkinter")
 
-# Make the app responsive
-root.columnconfigure(index=0, weight=1)
-root.columnconfigure(index=1, weight=1)
-root.columnconfigure(index=2, weight=1)
-root.rowconfigure(index=0, weight=1)
-root.rowconfigure(index=1, weight=1)
-root.rowconfigure(index=2, weight=1)
+class Display():
+    def __init__(self):
+        self.root = tk.Tk()
+        self.root.title("Tkinter")
 
-# Create a style
-style = ttk.Style(root)
+        # Make the app responsive
+        self.root.columnconfigure(index=0, weight=1)
+        self.root.columnconfigure(index=1, weight=1)
+        self.root.columnconfigure(index=2, weight=1)
+        self.root.rowconfigure(index=0, weight=1)
+        self.root.rowconfigure(index=1, weight=1)
+        self.root.rowconfigure(index=2, weight=1)
 
-# Import the tcl file
-root.tk.call("source", "forest-light.tcl")
+        # Create a style
+        style = ttk.Style(self.root)
 
-# Set the theme with the theme_use method
-style.theme_use("forest-light")
+        # Import the tcl file
+        self.root.tk.call("source", "forest-light.tcl")
 
-# Create a Frame for input widgets
-widgets_frame = ttk.Frame(root, padding=(0, 0, 0, 10))
-widgets_frame.grid(row=0, column=1, padx=10, pady=(
-    30, 10), sticky="nsew", rowspan=3)
-widgets_frame.columnconfigure(index=0, weight=1)
+        # Set the theme with the theme_use method
+        style.theme_use("forest-light")
 
-# Entry Id
-label_id = ttk.Label(widgets_frame, text="ID")
-label_id.grid(row=0, column=0, padx=5, sticky="ew")
-entry_id = ttk.Entry(widgets_frame)
-entry_id.grid(row=0, column=1, padx=5, pady=(0, 10), sticky="ew")
+        self.Create_frame()
+        self.Crete_label_entry()
+        self.Create_button()
 
-# Entry Password
-label_password = ttk.Label(widgets_frame, text="Password")
-label_password.grid(row=1, column=0, padx=5, sticky="ew")
-entry_password = ttk.Entry(widgets_frame)
-entry_password.grid(row=1, column=1, padx=5, pady=(0, 10), sticky="ew")
+    # Create a Frame for input widgets
+    def Create_frame(self):
+        self.widgets_frame = ttk.Frame(self.root, padding=(0, 0, 0, 10))
+        self.widgets_frame.grid(row=0, column=1, padx=10, pady=(
+            30, 10), sticky="nsew", rowspan=3)
+        self.widgets_frame.columnconfigure(index=0, weight=1)
 
-# Button B1
-button_b1 = ttk.Button(widgets_frame, text="B1")
-button_b1.grid(row=2, column=0, padx=5, pady=10, sticky="nsew")
+    # Create Label Entry
+    def Crete_label_entry(self):
+        # Entry Id
+        label_id = ttk.Label(self.widgets_frame, text="ID")
+        label_id.grid(row=0, column=0, padx=5, sticky="ew")
+        entry_id = ttk.Entry(self.widgets_frame)
+        entry_id.grid(row=0, column=1, padx=5, pady=(0, 10), sticky="ew")
 
-# Button B2
-button_b2 = ttk.Button(widgets_frame, text="B2")
-button_b2.grid(row=2, column=1, padx=5, pady=10, sticky="nsew")
+        # Entry Password
+        label_password = ttk.Label(self.widgets_frame, text="Password")
+        label_password.grid(row=1, column=0, padx=5, sticky="ew")
+        entry_password = ttk.Entry(self.widgets_frame)
+        entry_password.grid(row=1, column=1, padx=5, pady=(0, 10), sticky="ew")
 
-# Button B3
-button_b3 = ttk.Button(widgets_frame, text="B3")
-button_b3.grid(row=2, column=2, padx=5, pady=10, sticky="nsew")
+    # Button
+    def Create_button(self):
+        # Button B1
+        self.button_b1 = ttk.Button(self.widgets_frame, text="B1")
+        self.button_b1.grid(row=2, column=0, padx=5, pady=10, sticky="nsew")
 
-# Button Sent
-button_sent = ttk.Button(widgets_frame, text="Sent")
-button_sent.grid(row=2, column=3, padx=5, pady=10, sticky="nsew")
+        # Button B2
+        self.button_b2 = ttk.Button(self.widgets_frame, text="B2")
+        self.button_b2.grid(row=2, column=1, padx=5, pady=10, sticky="nsew")
+
+        # Button B3
+        self.button_b3 = ttk.Button(self.widgets_frame, text="B3")
+        self.button_b3.grid(row=2, column=2, padx=5, pady=10, sticky="nsew")
+
+        # Button Sent
+        self.button_sent = ttk.Button(self.widgets_frame, text="Sent")
+        self.button_sent.grid(row=2, column=3, padx=5, pady=10, sticky="nsew")
+
+    # Start the main loop
+    def run(self):
+        self.root.mainloop()
 
 
-# Start the main loop
-root.mainloop()
+def main():
+    Start = Display()
+    Start.run()
+
+
+if __name__ == '__main__':
+    main()
