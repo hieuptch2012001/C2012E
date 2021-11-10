@@ -1,42 +1,59 @@
-from tkinter import *
+import tkinter as tk
+from tkinter import ttk
+
+root = tk.Tk()
+root.title("Forest")
+root.option_add("*tearOff", False)  # This is always a good idea
+
+# Make the app responsive
+root.columnconfigure(index=0, weight=1)
+root.columnconfigure(index=1, weight=1)
+root.columnconfigure(index=2, weight=1)
+root.rowconfigure(index=0, weight=1)
+root.rowconfigure(index=1, weight=1)
+root.rowconfigure(index=2, weight=1)
+
+# Create a style
+style = ttk.Style(root)
+
+# Import the tcl file
+root.tk.call("source", "forest-light.tcl")
+
+# Set the theme with the theme_use method
+style.theme_use("forest-light")
+
+# Create a Frame for input widgets
+widgets_frame = ttk.Frame(root, padding=(0, 0, 0, 10))
+widgets_frame.grid(row=0, column=1, padx=10, pady=(
+    30, 10), sticky="nsew", rowspan=3)
+widgets_frame.columnconfigure(index=0, weight=1)
+
+# Entry Id
+label_id = ttk.Label(widgets_frame, text="ID")
+label_id.grid(row=0, column=0, padx=5, sticky="ew")
+entry_id = ttk.Entry(widgets_frame)
+entry_id.insert(0, "Entry")
+entry_id.grid(row=0, column=1, padx=5, pady=(0, 10), sticky="ew")
+
+# Entry Password
+label_password = ttk.Label(widgets_frame, text="Password")
+label_password.grid(row=1, column=0, padx=5, sticky="ew")
+entry_password = ttk.Entry(widgets_frame)
+entry_password.insert(0, "Entry")
+entry_password.grid(row=1, column=1, padx=5, pady=(0, 10), sticky="ew")
+
+# Button B1
+button_b1 = ttk.Button(widgets_frame, text="B1")
+button_b1.grid(row=2, column=0, padx=5, pady=10, sticky="nsew")
+
+# Button
+button_b2 = ttk.Button(widgets_frame, text="B2")
+button_b2.grid(row=2, column=1, padx=5, pady=10, sticky="nsew")
+
+# Button
+button_b3 = ttk.Button(widgets_frame, text="B3 - sent")
+button_b3.grid(row=2, column=2, padx=5, pady=10, sticky="nsew")
 
 
-# root window
-root = Tk()
-root.geometry("550x450")
-root.resizable(False, False)
-root.title('Sign In')
-
-id = StringVar()
-password = StringVar()
-
-
-# id
-id = Label(root, text="ID :", font='Verdana 10 bold')
-id.place(x=80, y=120)
-
-id_entry = Entry(root, width=40, textvariable=id)
-id_entry.focus()
-id_entry.place(x=200, y=123)
-
-# password
-password_label = Label(root, text="Password :", font='Verdana 10 bold')
-password_label.place(x=80, y=160)
-
-password_entry = Entry(root, width=40, show="*", textvariable=password)
-password_entry.place(x=200, y=160)
-
-# button B1
-btn_b1 = Button(root, text="B1", font='Verdana 10 bold')
-btn_b1.place(x=200, y=193)
-
-# button B2
-btn_b2 = Button(root, text="B2", font='Verdana 10 bold')
-btn_b2.place(x=260, y=193)
-
-# button B3 -sent
-btn_b3 = Button(root, text="B3 - sent", font='Verdana 10 bold')
-btn_b3.place(x=320, y=193)
-
-
+# Start the main loop
 root.mainloop()
