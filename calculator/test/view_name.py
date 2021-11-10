@@ -39,8 +39,9 @@ class Button(tk.Tk):
                 self.buttons[self.button_count].grid(row=i, column=j)
 
     def print_button(self, button):
-        print(self.buttons[button]['text'])
+        # print(self.buttons[button]['text'])
         self.a = self.a + str(self.buttons[button]['text'])
+        print(self.a)
         if self.buttons[button]['text'] == "=":
             print(eval(self.a[:-1]), "\n")
             self.a = ""
