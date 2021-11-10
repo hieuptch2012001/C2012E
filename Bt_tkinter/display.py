@@ -2,8 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 root = tk.Tk()
-root.title("Forest")
-root.option_add("*tearOff", False)  # This is always a good idea
+root.title("Tkinter")
 
 # Make the app responsive
 root.columnconfigure(index=0, weight=1)
@@ -32,27 +31,29 @@ widgets_frame.columnconfigure(index=0, weight=1)
 label_id = ttk.Label(widgets_frame, text="ID")
 label_id.grid(row=0, column=0, padx=5, sticky="ew")
 entry_id = ttk.Entry(widgets_frame)
-entry_id.insert(0, "Entry")
 entry_id.grid(row=0, column=1, padx=5, pady=(0, 10), sticky="ew")
 
 # Entry Password
 label_password = ttk.Label(widgets_frame, text="Password")
 label_password.grid(row=1, column=0, padx=5, sticky="ew")
 entry_password = ttk.Entry(widgets_frame)
-entry_password.insert(0, "Entry")
 entry_password.grid(row=1, column=1, padx=5, pady=(0, 10), sticky="ew")
 
 # Button B1
 button_b1 = ttk.Button(widgets_frame, text="B1")
 button_b1.grid(row=2, column=0, padx=5, pady=10, sticky="nsew")
 
-# Button
+# Button B2
 button_b2 = ttk.Button(widgets_frame, text="B2")
 button_b2.grid(row=2, column=1, padx=5, pady=10, sticky="nsew")
 
-# Button
-button_b3 = ttk.Button(widgets_frame, text="B3 - sent")
+# Button B3
+button_b3 = ttk.Button(widgets_frame, text="B3")
 button_b3.grid(row=2, column=2, padx=5, pady=10, sticky="nsew")
+
+# Button Sent
+button_b3 = ttk.Button(widgets_frame, text="Sent")
+button_b3.grid(row=2, column=3, padx=5, pady=10, sticky="nsew")
 
 
 # Start the main loop
